@@ -401,7 +401,7 @@ struct SettingsView: View {
                     }.padding(.vertical, 4)
                 }
             }.listStyle(.inset).frame(minHeight: 220)
-            Text("Version \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "–") · \(Bundle.main.bundleURL.path)").font(.caption2).foregroundStyle(.tertiary).textSelection(.enabled)
+            Text("Version \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "–")").font(.caption2).foregroundStyle(.tertiary).textSelection(.enabled)
         }.padding(24).frame(width: 580, height: 520)
         .alert("Hinweis", isPresented: Binding(get: { favorites.error != nil }, set: { if !$0 { favorites.error = nil } })) { Button("OK") { favorites.error = nil } } message: { Text(favorites.error ?? "") }
     }
